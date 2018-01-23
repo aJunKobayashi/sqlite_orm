@@ -2259,6 +2259,7 @@ namespace sqlite_orm {
                     auto msg = sqlite3_errmsg(this->db);
                     throw std::runtime_error(msg);
                 }
+              sqlite3_busy_timeout(this->db, 5000);
             }
 
             ~database_connection() {
